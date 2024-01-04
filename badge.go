@@ -49,10 +49,10 @@ func Badge() {
 		if quit {
 			break
 		}
-		scroll(YourMarqueeTop, YourMarqueeMiddle, YourMarqueeBottom)
-		if quit {
-			break
-		}
+		//scroll(YourMarqueeTop, YourMarqueeMiddle, YourMarqueeBottom)
+		//if quit {
+		//	break
+		//}
 		QR(YourQRText)
 		if quit {
 			break
@@ -94,8 +94,8 @@ func myNameIs(name string) {
 	tinyfont.WriteLine(&display, &freesans.Regular12pt7b, (WIDTH-int16(w32))/2, 24, "my NAME is", colors[WHITE])
 
 	// middle text
-	w32, _ = tinyfont.LineWidth(&freesans.Bold9pt7b, name)
-	tinyfont.WriteLine(&display, &freesans.Bold9pt7b, (WIDTH-int16(w32))/2, 72, name, colors[BLACK])
+	w32, _ = tinyfont.LineWidth(&freesans.Bold12pt7b, name)
+	tinyfont.WriteLine(&display, &freesans.Bold12pt7b, (WIDTH-int16(w32))/2, 72, name, colors[BLACK])
 
 	// gophers
 	tinyfont.WriteLineColors(&display, &gophers.Regular32pt, WIDTH-48, 110, "BE", []color.RGBA{getRainbowRGB(100), getRainbowRGB(200)})
@@ -104,9 +104,9 @@ func myNameIs(name string) {
 func myNameIsRainbow(name string) {
 	myNameIs(name)
 
-	w32, _ := tinyfont.LineWidth(&freesans.Bold9pt7b, name)
+	w32, _ := tinyfont.LineWidth(&freesans.Bold12pt7b, name)
 	for i := 0; i < 230; i++ {
-		tinyfont.WriteLineColors(&display, &freesans.Bold9pt7b, (WIDTH-int16(w32))/2, 72, name, rainbow[i:])
+		tinyfont.WriteLineColors(&display, &freesans.Bold12pt7b, (WIDTH-int16(w32))/2, 72, name, rainbow[i:])
 		pressed, _ = buttons.Read8Input()
 		if pressed&machine.BUTTON_SELECT_MASK > 0 {
 			quit = true
